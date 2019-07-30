@@ -7,6 +7,7 @@ import { ServerNats } from './server-nats';
 import { ServerRedis } from './server-redis';
 import { ServerTCP } from './server-tcp';
 import { ServerRMQ } from './server-rmq';
+import { ServerSQS } from './server-sqs';
 
 export class ServerFactory {
   public static create(
@@ -24,6 +25,8 @@ export class ServerFactory {
         return new ServerGrpc(options);
       case Transport.RMQ:
         return new ServerRMQ(options);
+      case Transport.SQS:
+        return new ServerSQS(options);
       default:
         return new ServerTCP(options);
     }

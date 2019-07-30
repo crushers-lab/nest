@@ -10,6 +10,7 @@ export type MicroserviceOptions =
   | NatsOptions
   | MqttOptions
   | RmqOptions
+  | SQSOptions
   | CustomStrategy;
 
 export interface CustomStrategy {
@@ -96,5 +97,16 @@ export interface RmqOptions {
     queueOptions?: any;
     socketOptions?: any;
     noAck?: boolean;
+  };
+}
+
+export interface SQSOptions {
+  transport?: Transport.SQS;
+  options?: {
+    region?: string;
+    queue?: string;
+    fifo?: boolean;
+    maxMessages?: number;
+    waitTime?: number;
   };
 }

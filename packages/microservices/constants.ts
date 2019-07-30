@@ -32,3 +32,9 @@ export const NO_EVENT_HANDLER = `There is no matching event handler defined in t
 export const DISCONNECTED_RMQ_MESSAGE = `Disconnected from RMQ. Trying to reconnect.`;
 export const GRPC_DEFAULT_MAX_RECEIVE_MESSAGE_LENGTH = 4 * 1024 * 1024;
 export const GRPC_DEFAULT_MAX_SEND_MESSAGE_LENGTH = 4 * 1024 * 1024;
+
+export const SQS_DEFAULT_REGION = 'us-east-1';
+export const SQS_DEFAULT_QUEUE = 'default';
+export const SQS_DEFAULT_FIFO = false;
+export const SQS_DEFAULT_MAX_MESSAGES = 10;
+export const SQS_DEFAULT_WAIT_TIME = 20;

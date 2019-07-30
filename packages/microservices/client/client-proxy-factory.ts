@@ -9,7 +9,7 @@ import {
   MqttOptions,
   NatsOptions,
   RedisOptions,
-  RmqOptions,
+  RmqOptions, SQSOptions,
 } from '../interfaces/microservice-configuration.interface';
 import { ClientGrpcProxy } from './client-grpc';
 import { ClientMqtt } from './client-mqtt';
@@ -18,6 +18,7 @@ import { ClientProxy } from './client-proxy';
 import { ClientRedis } from './client-redis';
 import { ClientRMQ } from './client-rmq';
 import { ClientTCP } from './client-tcp';
+import { ClientSQS } from './client-sqs';
 
 export interface IClientProxyFactory {
   create(clientOptions: ClientOptions): ClientProxy & Closeable;
@@ -41,6 +42,8 @@ export class ClientProxyFactory {
         return new ClientGrpcProxy(options as GrpcOptions['options']);
       case Transport.RMQ:
         return new ClientRMQ(options as RmqOptions['options']);
+      case Transport.SQS:
+        return new ClientSQS(options as SQSOptions['options']);
       default:
         return new ClientTCP(options as TcpClientOptions['options']);
     }
